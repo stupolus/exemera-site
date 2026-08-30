@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Контакты — Exemera</title>
+  <meta name="description" content="Свяжитесь с Exemera: контрактное производство, собственные бренды, исследования и разработка препаратов эстетической медицины.">
+  <link rel="icon" href="assets/img/exemera-mark.svg" type="image/svg+xml">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; media-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self' mailto:">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <link rel="canonical" href="https://exemera.com/contacts.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Exemera">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:title" content="Контакты — Exemera">
+  <meta property="og:description" content="Запросите бесплатный формуляционный бриф: рекомендации по продуктам, сроки и ориентир по стоимости для вашего проекта.">
+  <meta property="og:url" content="https://exemera.com/contacts.html">
+  <meta property="og:image" content="https://exemera.com/assets/img/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Контакты — Exemera">
+  <meta name="twitter:description" content="Запросите бесплатный формуляционный бриф: рекомендации по продуктам, сроки и ориентир по стоимости для вашего проекта.">
+  <meta name="twitter:image" content="https://exemera.com/assets/img/og-image.jpg">
+  <link rel="preload" href="assets/fonts/onest-var-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/onest-var-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/fonts/fonts.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="header">
+  <div class="wrap header__in">
+    <a class="logo" href="index.html"><img src="assets/img/exemera-logo.svg" alt="Exemera"></a>
+    <nav class="nav">
+      <a href="index.html">Главная</a>
+      <a href="production.html">Контрактное производство</a>
+      <a href="products.html">Собственные бренды</a>
+      <a href="research.html">Исследования</a>
+      <a href="mission.html">Миссия</a>
+      <a href="contacts.html">Контакты</a>
+    </nav>
+    <a class="eco-link" href="index.html#eco" aria-label="Экосистема Exemera" title="Экосистема Exemera"><img src="assets/img/exemera-mark.svg" alt=""></a>
+    <button class="burger" aria-label="Меню"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<section class="hero hero--page">
+  <div class="wrap hero__in">
+    <span class="eyebrow">Контакты</span>
+    <h1>Запросите бесплатный <em>формуляционный бриф</em></h1>
+    <p class="lead">Расскажите о вашем проекте — и получите персональный бриф с рекомендациями по продуктам, оценкой сроков и ориентиром по стоимости. Или просто напишите нам о задаче.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap contact-grid">
+    <div class="reveal">
+      <span class="eyebrow">Связаться напрямую</span>
+      <!-- ЗАМЕНИТЬ: рабочие контакты компании -->
+      <div class="contact-item">
+        <span class="lbl">Email</span>
+        <a href="mailto:hello@exemera.com">hello@exemera.com</a>
+      </div>
+      <div class="contact-item">
+        <span class="lbl">Телефон</span>
+        <a href="tel:+79372822080">+7 (937) 282-20-80</a>
+      </div>
+      <div class="contact-item">
+        <span class="lbl">Мессенджеры</span>
+        <span class="val">WhatsApp · Telegram</span>
+      </div>
+      <div class="contact-item">
+        <span class="lbl">Офис и производство</span>
+        <span class="val">Адрес будет указан здесь</span>
+      </div>
+      <ul class="detail-list" style="margin-top: 28px;">
+        <li>Персональные рекомендации по продуктам под ваш целевой рынок</li>
+        <li>Оценка сроков разработки и производства</li>
+        <li>Ориентир по стоимости и минимальным партиям</li>
+      </ul>
+    </div>
+
+    <div class="reveal" data-delay="1">
+      <span class="eyebrow">Написать нам</span>
+      <form class="form" id="contact-form" style="margin-top: 22px;">
+        <div>
+          <label for="f-name">Ваше имя</label>
+          <input id="f-name" name="name" type="text" required autocomplete="name" maxlength="100">
+        </div>
+        <div>
+          <label for="f-company">Компания</label>
+          <input id="f-company" name="company" type="text" autocomplete="organization" maxlength="150">
+        </div>
+        <div>
+          <label for="f-topic">Направление</label>
+          <select id="f-topic" name="topic">
+            <option>Контрактное производство</option>
+            <option>Собственные бренды / дистрибуция</option>
+            <option>Исследования и разработка</option>
+            <option>Другое</option>
+          </select>
+        </div>
+        <div>
+          <label for="f-message">Сообщение</label>
+          <textarea id="f-message" name="message" required maxlength="5000" placeholder="Опишите задачу: продукт, целевой рынок, объёмы, сроки…"></textarea>
+        </div>
+        <button class="btn btn--solid" type="submit">Отправить <span class="arr">→</span></button>
+        <label class="consent">
+          <input type="checkbox" name="consent" required>
+          <span>Я даю согласие на обработку моих персональных данных в соответствии с <a href="privacy.html">Политикой обработки персональных данных</a></span>
+        </label>
+        <p class="form__note">Форма откроет письмо в вашем почтовом клиенте — данные не сохраняются на сайте.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__grid">
+      <div>
+        <a class="logo" href="index.html"><img src="assets/img/exemera-logo.svg" alt="Exemera"></a>
+        <p class="footer__slogan">Экосистема эстетики и здоровья</p>
+        <p>Контрактное производство и разработка препаратов эстетической медицины: филлеры, биоревитализанты, мезотерапия, пилинги.</p>
+      </div>
+      <div>
+        <h4>Направления</h4>
+        <ul>
+          <li><a href="production.html">Контрактное производство</a></li>
+          <li><a href="products.html">Собственные бренды</a></li>
+          <li><a href="research.html">Исследования и разработка</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Компания</h4>
+        <ul>
+          <li><a href="index.html">О нас</a></li>
+          <li><a href="mission.html">Миссия</a></li>
+          <li><a href="contacts.html">Контакты</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Связаться</h4>
+        <ul>
+          <!-- ЗАМЕНИТЬ: рабочие контакты -->
+          <li><a href="mailto:hello@exemera.com">hello@exemera.com</a></li>
+          <li><a href="tel:+79372822080">+7 (937) 282-20-80</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="footer__legal">Информация на сайте носит справочный характер, предназначена для специалистов индустрии эстетической медицины и представителей бизнеса, не является рекламой лекарственных средств и медицинских изделий и не является публичной офертой (ст. 437 ГК РФ).</p>
+    <p class="footer__legal">АО «Эксимера» · ИНН 9731137790 · ОГРН 1247700489398 · 422624, Республика Татарстан, с. Большие Кабаны, ул. Выставочная, 1А, пом. 1000</p>
+    <div class="footer__bottom">
+      <span>© <span data-year>2026</span> Exemera. Все права защищены.</span>
+      <a href="privacy.html">Политика обработки персональных данных</a>
+      <span class="age-badge">18+</span>
+    </div>
+    <div class="footer__watermark" aria-hidden="true"><img src="assets/img/exemera-logo.svg" alt="" loading="lazy"></div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dermavial — скоро | Экосистема Exemera</title>
+  <meta name="description" content="Dermavial — косметологический бренд экосистемы Exemera. Hyaluronic Acid Serum 3%: сайт скоро откроется.">
+  <link rel="icon" type="image/svg+xml" href="assets/img/exemera-mark.svg">
+  <link rel="stylesheet" href="assets/fonts/fonts.css">
+  <style>
+    :root {
+      --dv-navy: #1e3a5c;
+      --dv-navy-deep: #142a44;
+      --dv-teal: #2aa88f;
+      --dv-paper: #f2f2f0;
+      --dv-white: #ffffff;
+      --dv-ink-soft: #5a6b80;
+      --dv-line: rgba(30, 58, 92, 0.14);
+      --dv-font: "Onest", -apple-system, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--dv-font);
+      background: var(--dv-paper);
+      color: var(--dv-navy);
+      font-size: 16px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: clip;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    .wrap { width: min(1160px, calc(100% - 44px)); margin-inline: auto; }
+
+    /* шапка */
+    .dv-head {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 22px 0;
+    }
+    .dv-logo { font-weight: 800; font-size: 1.35rem; letter-spacing: 0.22em; }
+    .dv-logo span { color: var(--dv-teal); }
+    .dv-eco {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em;
+      color: var(--dv-ink-soft); transition: color 0.25s;
+    }
+    .dv-eco img { width: 26px; height: 26px; border-radius: 50%; }
+    .dv-eco:hover { color: var(--dv-navy); }
+
+    /* герой */
+    .dv-hero { padding: clamp(28px, 5vw, 70px) 0 0; }
+    .dv-hero .wrap {
+      display: grid; grid-template-columns: 1.05fr 0.95fr;
+      gap: clamp(24px, 4vw, 60px); align-items: center;
+    }
+    .dv-badge {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: var(--dv-white); border: 1px solid var(--dv-line);
+      border-radius: 999px; padding: 8px 18px;
+      font-size: 0.72rem; font-weight: 800; letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--dv-teal); margin-bottom: 26px;
+    }
+    .dv-badge::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--dv-teal); animation: dvpulse 2.2s ease-in-out infinite; }
+    @keyframes dvpulse { 0%,100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.35; transform: scale(0.72); } }
+    .dv-hero h1 {
+      font-size: clamp(2.6rem, 7vw, 4.8rem); font-weight: 800;
+      letter-spacing: 0.06em; line-height: 1.02; color: var(--dv-navy);
+    }
+    .dv-hero .dv-sub {
+      margin-top: 14px; font-size: clamp(1rem, 1.8vw, 1.3rem);
+      font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--dv-teal);
+    }
+    .dv-hero p.dv-lead {
+      margin-top: 22px; max-width: 46ch; color: var(--dv-ink-soft); font-size: 1.02rem;
+    }
+    .dv-chips { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+    .dv-chip {
+      background: var(--dv-white); border: 1px solid var(--dv-line); border-radius: 10px;
+      padding: 9px 16px; font-size: 0.8rem; font-weight: 700; color: var(--dv-navy);
+    }
+    .dv-chip small { display: block; font-size: 0.62rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--dv-ink-soft); }
+    .dv-cta { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 34px; }
+    .dv-btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      border-radius: 999px; padding: 15px 30px;
+      font-size: 0.82rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase;
+      transition: transform 0.25s, background 0.25s, color 0.25s, border-color 0.25s;
+    }
+    .dv-btn--solid { background: var(--dv-navy); color: var(--dv-white); }
+    .dv-btn--solid:hover { background: var(--dv-navy-deep); transform: translateY(-2px); }
+    .dv-btn--ghost { border: 1.5px solid var(--dv-line); color: var(--dv-navy); }
+    .dv-btn--ghost:hover { border-color: var(--dv-navy); transform: translateY(-2px); }
+    .dv-hero-img { position: relative; }
+    .dv-hero-img::before {
+      content: ""; position: absolute; inset: 8% 12% -4%;
+      background: radial-gradient(closest-side, rgba(42, 168, 143, 0.16), transparent 75%);
+      filter: blur(6px);
+    }
+    .dv-hero-img img { position: relative; width: min(430px, 82%); height: auto; margin-inline: auto; }
+
+    /* полоса фактов */
+    .dv-facts { background: var(--dv-navy); color: var(--dv-white); margin-top: clamp(36px, 6vw, 70px); }
+    .dv-facts .wrap {
+      display: grid; grid-template-columns: repeat(5, 1fr);
+      gap: 12px; padding: clamp(22px, 3vw, 34px) 22px;
+    }
+    .dv-fact { text-align: center; padding: 6px 8px; }
+    .dv-fact b { display: block; font-size: clamp(1.02rem, 1.7vw, 1.3rem); font-weight: 800; color: #7fd6c4; }
+    .dv-fact span { font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(255, 255, 255, 0.65); }
+
+    /* о продукте */
+    .dv-about { padding: clamp(48px, 7vw, 96px) 0; }
+    .dv-about .wrap {
+      display: grid; grid-template-columns: 0.9fr 1.1fr;
+      gap: clamp(28px, 5vw, 70px); align-items: center;
+    }
+    .dv-about-img { border-radius: 18px; overflow: hidden; box-shadow: 0 30px 60px -40px rgba(30, 58, 92, 0.5); }
+    .dv-about-img img { height: auto; }
+    .dv-about h2 { font-size: clamp(1.6rem, 3.2vw, 2.4rem); font-weight: 800; line-height: 1.15; letter-spacing: 0.01em; }
+    .dv-about h2 em { font-style: normal; color: var(--dv-teal); }
+    .dv-about p { margin-top: 18px; color: var(--dv-ink-soft); max-width: 52ch; }
+    .dv-made {
+      display: inline-flex; align-items: center; gap: 12px; margin-top: 28px;
+      background: var(--dv-white); border: 1px solid var(--dv-line); border-radius: 999px; padding: 10px 20px;
+    }
+    .dv-made img { width: 26px; height: 26px; }
+    .dv-made span { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.05em; }
+
+    /* подвал */
+    .dv-foot { border-top: 1px solid var(--dv-line); padding: 30px 0 40px; }
+    .dv-foot p { font-size: 0.78rem; color: var(--dv-ink-soft); max-width: 900px; }
+    .dv-foot p + p { margin-top: 8px; }
+
+    @media (max-width: 860px) {
+      .dv-hero .wrap { grid-template-columns: 1fr; text-align: center; }
+      .dv-hero p.dv-lead { margin-inline: auto; }
+      .dv-chips, .dv-cta { justify-content: center; }
+      .dv-hero-img { order: -1; }
+      .dv-hero-img img { width: min(300px, 64%); }
+      .dv-facts .wrap { grid-template-columns: repeat(2, 1fr); }
+      .dv-facts .dv-fact:last-child { grid-column: 1 / -1; }
+      .dv-about .wrap { grid-template-columns: 1fr; }
+      .dv-about-img { max-width: 440px; margin-inline: auto; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="wrap">
+    <header class="dv-head">
+      <div class="dv-logo">DERMA<span>VIAL</span></div>
+      <a class="dv-eco" href="index.html#eco"><img src="assets/img/exemera-mark.svg" alt="Exemera">Экосистема Exemera</a>
+    </header>
+  </div>
+
+  <section class="dv-hero">
+    <div class="wrap">
+      <div>
+        <div class="dv-badge">Сайт скоро откроется</div>
+        <h1>DERMAVIAL</h1>
+        <div class="dv-sub">Hyaluronic Acid Serum 3%</div>
+        <p class="dv-lead">Косметологический бренд экосистемы Exemera. Первый продукт — сыворотка с гиалуроновой кислотой двух молекулярных масс (HMW + LMW), пантенолом B5 и глицерином. Для наружного применения.</p>
+        <div class="dv-chips">
+          <div class="dv-chip"><small>Формула</small>HMW + LMW Multi-Depth</div>
+          <div class="dv-chip"><small>Актив</small>Panthenol B5 · Glycerin</div>
+          <div class="dv-chip"><small>Объём</small>8 mL</div>
+        </div>
+        <div class="dv-cta">
+          <a class="dv-btn dv-btn--solid" href="contacts.html">Связаться с нами</a>
+          <a class="dv-btn dv-btn--ghost" href="index.html">Сайт завода →</a>
+        </div>
+      </div>
+      <div class="dv-hero-img">
+        <img src="assets/img/dermavial-vial.webp" alt="Dermavial Hyaluronic Acid Serum 3% — флакон 8 мл" width="1046" height="1400">
+      </div>
+    </div>
+  </section>
+
+  <section class="dv-facts">
+    <div class="wrap">
+      <div class="dv-fact"><b>3%</b><span>гиалуроновая кислота</span></div>
+      <div class="dv-fact"><b>HMW + LMW</b><span>две молекулярные массы</span></div>
+      <div class="dv-fact"><b>8 mL</b><span>стерильный флакон</span></div>
+      <div class="dv-fact"><b>EC 1223/2009</b><span>CPNP notified</span></div>
+      <div class="dv-fact"><b>Made in Spain</b><span>европейское производство</span></div>
+    </div>
+  </section>
+
+  <section class="dv-about">
+    <div class="wrap">
+      <div class="dv-about-img">
+        <img src="assets/img/dermavial-vial-tilt.webp" alt="Этикетка Dermavial крупным планом" width="1200" height="1200" loading="lazy">
+      </div>
+      <div>
+        <h2>Красота, у которой есть <em>формула</em></h2>
+        <p>Dermavial — линия косметологических средств, которую мы готовим к запуску вместе с европейскими партнёрами. Комбинация высоко- и низкомолекулярной гиалуроновой кислоты работает на разной глубине рогового слоя, пантенол и глицерин поддерживают барьер и увлажнение.</p>
+        <p>Продукт зарегистрирован как косметическое средство по регламенту EC 1223/2009 и нотифицирован в CPNP. Полный сайт с составами, протоколами применения и условиями поставки откроется здесь.</p>
+        <a class="dv-made" href="index.html#eco"><img src="assets/img/exemera-mark.svg" alt=""><span>Часть экосистемы Exemera</span></a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="dv-foot">
+    <div class="wrap">
+      <p>Информация на странице носит справочный характер, не является рекламой лекарственных средств и медицинских изделий и не является публичной офертой (ст. 437 ГК РФ). Косметическое средство, для наружного применения.</p>
+      <p>АО «Эксимера» · ИНН 9731137790 · ОГРН 1247700489398 · 422624, Республика Татарстан, с. Большие Кабаны, ул. Выставочная, 1А, пом. 1000 · +7 (937) 282-20-80</p>
+    </div>
+  </footer>
+
+</body>
+</html>

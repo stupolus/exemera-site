@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Торговый дом Exemera — скоро</title>
+  <meta name="description" content="Торговый дом Exemera — дистрибуция препаратов эстетической медицины. Сайт скоро откроется.">
+  <link rel="icon" type="image/svg+xml" href="assets/img/exemera-mark.svg">
+  <link rel="stylesheet" href="assets/fonts/fonts.css">
+  <style>
+    :root {
+      --td-teal: #0a8f89;
+      --td-teal-deep: #045a55;
+      --td-gold: #c9a24b;
+      --td-gold-soft: #e2c98f;
+      --td-cream: #f4f8f7;
+      --td-ink: #0e2523;
+      --td-ink-soft: #58716e;
+      --td-line: rgba(10, 143, 137, 0.18);
+      --td-mint: #81d8d0;
+      --font-display: "Unbounded", "Onest", Arial, sans-serif;
+      --font-body: "Onest", -apple-system, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+      --font-mono: "JetBrains Mono", Consolas, monospace;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body);
+      background: var(--td-cream);
+      color: var(--td-ink);
+      font-size: 16px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: clip;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    .wrap { width: min(1100px, calc(100% - 44px)); margin-inline: auto; }
+
+    /* шапка */
+    .td-head { display: flex; align-items: center; justify-content: space-between; padding: 22px 0; }
+    .td-brand { display: flex; align-items: baseline; gap: 14px; }
+    .td-brand img { width: 142px; }
+    .td-brand span {
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase;
+      font-family: var(--font-mono); color: var(--td-teal); border-left: 1.5px solid var(--td-gold); padding-left: 14px;
+    }
+    .td-eco {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em;
+      color: var(--td-ink-soft); transition: color 0.25s;
+    }
+    .td-eco img { width: 26px; height: 26px; border-radius: 50%; }
+    .td-eco:hover { color: var(--td-ink); }
+
+    /* красная шкатулка */
+    .td-hero { padding: clamp(14px, 3vw, 34px) 0 clamp(30px, 4vw, 50px); }
+    .td-box {
+      position: relative;
+      background: url("assets/img/td-mosaic.svg") center / cover no-repeat, #1a1830;
+      border-radius: 24px;
+      padding: clamp(48px, 7vw, 96px) clamp(24px, 6vw, 90px);
+      text-align: center;
+      color: #f2f4fb;
+      overflow: hidden;
+      box-shadow: 0 36px 80px -46px rgba(20, 24, 46, 0.8);
+    }
+    /* затемнение к центру — текст читается на пёстрой мозаике */
+    .td-box::before {
+      content: ""; position: absolute; inset: 0; pointer-events: none;
+      background: rgba(14, 12, 26, 0.14);
+    }
+    .td-box-in { position: relative; z-index: 1; }
+    .td-plaque {
+      display: inline-block;
+      border: 2px solid #fff;
+      background: rgba(15, 13, 26, 0.55);
+      border-radius: 4px;
+      padding: clamp(24px, 4vw, 44px) clamp(20px, 5vw, 60px);
+      box-shadow: 16px 20px 40px rgba(10, 10, 22, 0.4);
+      backdrop-filter: blur(2px);
+      max-width: 100%;
+    }
+    .td-badge {
+      display: inline-flex; align-items: center; gap: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.4); background: rgba(15, 13, 26, 0.45);
+      border-radius: 999px; padding: 8px 20px;
+      font-family: var(--font-mono);
+      font-size: 0.68rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase;
+      color: #eef2ff; margin-bottom: 30px;
+    }
+    .td-badge::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: #8fd8ff; animation: tdpulse 2.2s ease-in-out infinite; }
+    @keyframes tdpulse { 0%,100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.35; transform: scale(0.72); } }
+    .td-box h1 {
+      font-family: var(--font-display);
+      font-size: clamp(1.7rem, 4.2vw, 3rem); font-weight: 600;
+      line-height: 1.22; letter-spacing: 0.005em; text-wrap: balance;
+      color: #ffffff;
+    }
+    .td-box h1 em {
+      font-style: normal;
+      background: linear-gradient(92deg, #8fd8ff, #c9a7ff 45%, #ff9ec2 80%, #ffd28f);
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+    }
+    .td-sep {
+      width: 150px; height: 1.5px; border-radius: 1px;
+      background: linear-gradient(90deg, transparent, #8fd8ff 30%, #ff9ec2 55%, var(--td-gold) 75%, transparent);
+      margin: 26px auto;
+    }
+    .td-box .td-lead {
+      margin: 0 auto; max-width: 54ch; color: rgba(242, 244, 251, 0.85); font-size: 1.02rem;
+    }
+    .td-cta { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; margin-top: 36px; }
+    .td-btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      border-radius: 999px; padding: 15px 30px;
+      font-size: 0.8rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase;
+      transition: transform 0.25s, background 0.25s, color 0.25s, border-color 0.25s;
+    }
+    .td-btn--gold { background: var(--td-gold); color: #2b2410; }
+    .td-btn--gold:hover { background: var(--td-gold-soft); transform: translateY(-2px); }
+    .td-btn--ghost { border: 1.5px solid rgba(255, 255, 255, 0.45); color: #f2f4fb; }
+    .td-btn--ghost:hover { border-color: #fff; color: #fff; transform: translateY(-2px); }
+
+    /* флагманский продукт (рецептурный ЛП — за подтверждением специалиста) */
+    .td-product-sec { padding: clamp(6px, 1.5vw, 18px) 0 clamp(10px, 2vw, 24px); }
+    .td-product {
+      background: #fff; border: 1px solid var(--td-line); border-radius: 6px;
+      padding: clamp(28px, 4vw, 44px) clamp(24px, 4vw, 48px);
+      position: relative;
+    }
+    .td-product::before {
+      content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 3px;
+      background: linear-gradient(180deg, var(--td-gold), var(--td-teal));
+      border-radius: 6px 0 0 6px;
+    }
+    .td-product .td-eyebrow {
+      font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.18em;
+      font-size: 0.72rem; font-weight: 600; color: var(--td-teal); margin-bottom: 12px;
+    }
+    .td-product h2 { font-family: var(--font-display); font-weight: 600; font-size: clamp(1.15rem, 2.1vw, 1.6rem); line-height: 1.3; }
+    .td-rx {
+      display: inline-flex; align-items: center; gap: 8px; vertical-align: middle;
+      background: var(--td-teal); color: #fdf9f2; border-radius: 6px;
+      font-size: 0.7rem; font-weight: 800; letter-spacing: 0.14em;
+      padding: 4px 10px; margin-left: 12px; transform: translateY(-4px);
+    }
+    .td-gate p { color: var(--td-ink-soft); max-width: 62ch; margin-top: 12px; font-size: 0.95rem; }
+    .td-gate-btns { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 22px; }
+    .td-btn--teal { background: var(--td-teal); color: #fdf9f2; }
+    .td-btn--teal:hover { background: var(--td-teal-deep); transform: translateY(-2px); }
+    .td-btn--line { border: 1.5px solid var(--td-line); color: var(--td-ink-soft); }
+    .td-btn--line:hover { border-color: var(--td-ink-soft); transform: translateY(-2px); }
+    .td-product-body[hidden], .td-gate[hidden], .td-gate-no[hidden] { display: none; }
+    .td-product-body p { color: var(--td-ink-soft); max-width: 66ch; margin-top: 12px; font-size: 0.95rem; }
+    .td-product-body .td-warn {
+      margin-top: 22px; border: 1px solid var(--td-teal); border-radius: 6px;
+      padding: 14px 18px; color: var(--td-teal);
+      font-size: 0.85rem; font-weight: 700; letter-spacing: 0.02em;
+    }
+    .td-product-body .td-note { font-size: 0.78rem; margin-top: 14px; }
+    .td-gate-no p { color: var(--td-ink-soft); margin-top: 12px; font-size: 0.95rem; }
+
+    /* направления */
+    .td-dirs-sec { padding: clamp(10px, 2vw, 24px) 0 clamp(44px, 6vw, 80px); }
+    .td-dirs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .td-dir {
+      background: #fff; border: 1px solid var(--td-line); border-radius: 6px;
+      padding: 26px 26px 24px; position: relative;
+    }
+    .td-dir::before {
+      content: ""; position: absolute; left: 26px; right: 26px; top: 0;
+      height: 2px; background: linear-gradient(90deg, var(--td-teal), var(--td-gold), transparent);
+    }
+    .td-dir small {
+      display: block; font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.14em;
+      font-size: 0.68rem; font-weight: 600; color: var(--td-teal); margin-bottom: 10px;
+    }
+    .td-dir b { display: block; font-size: 1.04rem; margin-bottom: 6px; }
+    .td-dir p { font-size: 0.88rem; color: var(--td-ink-soft); }
+
+    /* подвал */
+    .td-foot { border-top: 1px solid var(--td-line); padding: 26px 0 38px; margin-top: auto; }
+    .td-foot p { font-size: 0.78rem; color: var(--td-ink-soft); max-width: 900px; }
+    .td-foot p + p { margin-top: 8px; }
+
+    @media (max-width: 760px) {
+      .td-brand span { display: none; }
+      .td-dirs { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="wrap">
+    <header class="td-head">
+      <a class="td-brand" href="index.html#eco" aria-label="На главную страницу Exemera">
+        <img src="assets/img/exemera-logo.svg" alt="exemera">
+        <span>Торговый дом</span>
+      </a>
+      <a class="td-eco" href="index.html#eco"><img src="assets/img/exemera-mark.svg" alt="">Экосистема Exemera</a>
+    </header>
+  </div>
+
+  <section class="td-hero">
+    <div class="wrap">
+      <div class="td-box">
+        <div class="td-box-in">
+          <div class="td-badge">Сайт скоро откроется</div>
+          <div class="td-plaque">
+            <h1>Торговый дом Exemera —<br>дистрибуция, которой <em>доверяют</em></h1>
+            <div class="td-sep" aria-hidden="true"></div>
+            <p class="td-lead">Мы готовим к запуску торговое направление экосистемы: поставки препаратов эстетической медицины для клиник, дистрибьюторов и бьюти-ритейла — с документами, логистикой и поддержкой от производителя.</p>
+          </div>
+          <div class="td-cta">
+            <a class="td-btn td-btn--gold" href="contacts.html">Связаться с нами</a>
+            <a class="td-btn td-btn--ghost" href="index.html#eco">На главную →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="td-product-sec">
+    <div class="wrap">
+      <div class="td-product">
+        <div class="td-eyebrow">Флагман портфеля</div>
+
+        <!-- гейт: информация о рецептурном ЛП — только для специалистов здравоохранения -->
+        <div class="td-gate" id="tdGate">
+          <h2>Рецептурный лекарственный препарат</h2>
+          <p>Раздел содержит информацию о лекарственном препарате, отпускаемом по рецепту. В соответствии с законодательством РФ она предназначена только для медицинских и фармацевтических работников (специалистов здравоохранения) и не является рекламой.</p>
+          <p><b>Пожалуйста, подтвердите, что вы являетесь специалистом здравоохранения.</b></p>
+          <div class="td-gate-btns">
+            <button class="td-btn td-btn--teal" type="button" id="tdGateYes">Я специалист здравоохранения</button>
+            <button class="td-btn td-btn--line" type="button" id="tdGateNo">Я не специалист</button>
+          </div>
+        </div>
+
+        <div class="td-gate-no" id="tdGateNoMsg" hidden>
+          <h2>Информация недоступна</h2>
+          <p>Сведения о рецептурных лекарственных препаратах предназначены только для специалистов здравоохранения. Общую информацию о Торговом доме Exemera вы можете получить по адресу hello@exemera.com.</p>
+        </div>
+
+        <div class="td-product-body" id="tdProductBody" hidden>
+          <h2>Семавелика<sup>®</sup> — семаглутид<span class="td-rx">Rx · по рецепту</span></h2>
+          <p>Торговый дом Exemera получил права на дистрибуцию лекарственного препарата Семавелика<sup>®</sup> (МНН: семаглутид). По вопросам поставок, регистрационной документации и условий работы обращайтесь: hello@exemera.com, +7 (937) 282-20-80.</p>
+          <div class="td-warn">Лекарственный препарат. Отпускается по рецепту. Имеются противопоказания — необходима консультация специалиста. Информация не является рекламой и предназначена для медицинских и фармацевтических работников.</div>
+          <p class="td-note">Полные сведения о препарате — в инструкции по медицинскому применению и в Государственном реестре лекарственных средств.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="td-dirs-sec">
+    <div class="wrap">
+      <div class="td-dirs">
+        <div class="td-dir"><small>№ 01 · Фармдистрибуция</small><b>Лекарственные препараты</b><p>Поставки рецептурных препаратов для медицинских организаций и аптечных сетей — информация для специалистов.</p></div>
+        <div class="td-dir"><small>№ 02 · Марки Exemera</small><b>Собственные линейки</b><p>Филлеры, биоревитализанты, коллаген, CaHA и PLLA — напрямую от завода.</p></div>
+        <div class="td-dir"><small>№ 03 · Партнёры и сервис</small><b>Партнёрские бренды</b><p>Отобранные продукты партнёров, включая линию Dermavial; документы, логистика, обучение.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="td-foot">
+    <div class="wrap">
+      <p>Информация на странице носит справочный характер, не является рекламой лекарственных средств и медицинских изделий и не является публичной офертой (ст. 437 ГК РФ).</p>
+      <!-- ЗАМЕНИТЬ: полные реквизиты Торгового дома после регистрации -->
+      <p>Торговый дом Exemera · г. Москва · юридический и фактический адреса будут опубликованы · hello@exemera.com · +7 (937) 282-20-80</p>
+    </div>
+  </footer>
+
+  <script>
+    /* гейт специалиста: сведения о рецептурном ЛП открываются только после подтверждения
+       (ст. 24 закона «О рекламе»: информация о Rx-препаратах — для медработников) */
+    (function () {
+      var gate = document.getElementById("tdGate");
+      var body = document.getElementById("tdProductBody");
+      var no = document.getElementById("tdGateNoMsg");
+      if (!gate || !body) return;
+      var ok = false;
+      try { ok = sessionStorage.getItem("td-hcp") === "1"; } catch (e) {}
+      if (ok) { gate.hidden = true; body.hidden = false; }
+      document.getElementById("tdGateYes").addEventListener("click", function () {
+        try { sessionStorage.setItem("td-hcp", "1"); } catch (e) {}
+        gate.hidden = true; no.hidden = true; body.hidden = false;
+      });
+      document.getElementById("tdGateNo").addEventListener("click", function () {
+        gate.hidden = true; body.hidden = true; no.hidden = false;
+      });
+    })();
+  </script>
+
+</body>
+</html>

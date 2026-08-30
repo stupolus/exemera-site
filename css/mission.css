@@ -1,0 +1,186 @@
+/* ============================================================
+   EXEMERA — страница «Миссия»
+   Иммерсивная скролл-история по макету Figma: полноэкранные
+   сцены-градиенты, тонкие окружности, подписи-нарратив внизу.
+   ============================================================ */
+
+.mission-body {
+  background: #8d8177;
+  color: #fff;
+}
+
+/* --- мини-навигация глав (Вызовы / Миссия / Ценности) --- */
+.chapter-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 90;
+  display: flex;
+  gap: 28px;
+  padding: 22px 32px 30px;
+  font-size: 14px;
+  letter-spacing: 0.02em;
+  /* подложка, чтобы навигация не сливалась с контентом при скролле */
+  background: linear-gradient(rgba(43, 36, 27, 0.38), rgba(43, 36, 27, 0.14) 70%, transparent);
+}
+.chapter-nav a {
+  color: rgba(255, 255, 255, 0.45);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+.chapter-nav a.is-active { color: #fff; }
+.chapter-nav .to-site {
+  margin-left: auto;
+  color: rgba(255, 255, 255, 0.45);
+}
+.chapter-nav .to-site:hover { color: #fff; }
+
+/* --- сцены --- */
+.scene {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 96px 24px 120px;
+  text-align: center;
+  overflow: hidden;
+}
+
+/* градиенты сцен — от тёплого тауп к сумеречному синему и серебру,
+   как в макете */
+.scene--intro   { background: linear-gradient(178deg, #857a72 0%, #98897c 55%, #bcab99 100%); }
+.scene--grid    { background: linear-gradient(178deg, #9b9aa4 0%, #8d8b93 55%, #7f7c82 100%); }
+.scene--scatter { background: linear-gradient(178deg, #a4a4b0 0%, #93929e 55%, #85838d 100%); }
+.scene--stat    { background: linear-gradient(178deg, #9d9da8 0%, #8f8e98 60%, #82818a 100%); }
+.scene--stars   { background: linear-gradient(178deg, #3d4560 0%, #565f78 60%, #8d8b96 100%); }
+.scene--state   { background: linear-gradient(178deg, #465070 0%, #5a6480 55%, #9793a0 100%); }
+.scene--venn    { background: linear-gradient(178deg, #545e7a 0%, #6f7386 55%, #a5a2ab 100%); }
+.scene--values  { background: linear-gradient(140deg, #8f9095 0%, #a8a8ac 45%, #909196 100%); }
+
+/* интро */
+.scene__meta {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.75);
+  margin-bottom: 18px;
+}
+.scene__meta b { color: #fff; font-weight: 500; }
+.scene__question {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: clamp(30px, 4.6vw, 58px);
+  line-height: 1.22;
+  max-width: 1060px;
+  letter-spacing: 0.005em;
+}
+.scene__arrow {
+  position: absolute;
+  bottom: 34px;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0.85;
+  animation: arrow-bob 2.2s ease-in-out infinite;
+}
+@keyframes arrow-bob {
+  0%, 100% { transform: translate(-50%, 0); }
+  50% { transform: translate(-50%, 10px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .scene__arrow { animation: none; }
+}
+
+/* нарратив внизу сцены */
+.scene__caption {
+  /* центрирование без transform: его перезаписывает анимация [data-fade] */
+  position: absolute;
+  bottom: 44px;
+  left: 0;
+  right: 0;
+  margin-inline: auto;
+  width: min(880px, calc(100% - 48px));
+  font-size: clamp(15px, 1.35vw, 19px);
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.94);
+  font-weight: 300;
+}
+
+/* большое программное заявление (сцена «Миссия») */
+.scene__statement {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: clamp(28px, 4.2vw, 54px);
+  line-height: 1.28;
+  max-width: 1100px;
+}
+
+/* --- графика: тонкие окружности --- */
+.scene__art { width: min(620px, 84vw); height: auto; }
+.scene__art--wide { width: min(1440px, 100vw); position: absolute; inset: 0; height: 100%; }
+.art-line { fill: none; stroke: rgba(255, 255, 255, 0.85); stroke-width: 1; }
+.art-line--faint { stroke: rgba(255, 255, 255, 0.4); }
+.art-dash {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.75);
+  stroke-width: 1;
+  stroke-dasharray: 4 6;
+}
+.art-label {
+  font-family: "JetBrains Mono", "SF Mono", Consolas, monospace;
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  fill: rgba(255, 255, 255, 0.85);
+}
+.art-label--dim { fill: rgba(255, 255, 255, 0.55); }
+.art-big-label {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: 26px;
+  fill: rgba(255, 255, 255, 0.5);
+}
+.art-logo {
+  font-family: var(--font-body);
+  font-weight: 800;
+  font-size: 30px;
+  fill: #fff;
+  letter-spacing: 0.01em;
+}
+
+/* звёздное небо */
+.scene--stars .scene__caption,
+.scene--state .scene__caption { text-shadow: 0 1px 12px rgba(0, 0, 0, 0.2); }
+
+/* появление сцен */
+.scene [data-fade] {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.scene.is-on [data-fade] {
+  opacity: 1;
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .scene [data-fade] { opacity: 1; transform: none; transition: none; }
+}
+
+/* низ страницы — возврат на сайт */
+.mission-exit {
+  background: #f1ebdf;
+  text-align: center;
+  padding: 72px 24px;
+}
+.mission-exit p {
+  color: #6e6353;
+  max-width: 560px;
+  margin: 0 auto 24px;
+}
+
+@media (max-width: 640px) {
+  .chapter-nav { gap: 16px; padding: 20px 18px; font-size: 13px; }
+  .scene { padding: 84px 18px 128px; }
+  .scene__caption { bottom: 30px; }
+  .art-big-label { font-size: 20px; }
+}
