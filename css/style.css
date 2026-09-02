@@ -430,6 +430,19 @@ body.menu-open .burger span:nth-child(3) { transform: translateY(-6px) rotate(-4
 }
 .media--wide { aspect-ratio: 16 / 9; }
 .media--tall { aspect-ratio: 3 / 4; }
+
+/* --- фото внутри блоков: баннер под заголовком и пара вертикальных кадров --- */
+.section-photo { margin: 0 0 clamp(32px, 4.5vw, 52px); }
+.section-photo.media--banner { aspect-ratio: 21 / 9; }
+.photo-duo {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
+  margin: 0 0 clamp(32px, 4.5vw, 52px);
+}
+.photo-duo .media { aspect-ratio: 3 / 4; }
+@media (max-width: 760px) {
+  .section-photo.media--banner { aspect-ratio: 4 / 3; }
+  .photo-duo { gap: 12px; }
+}
 .media img, .media video {
   width: 100%; height: 100%;
   object-fit: cover;
