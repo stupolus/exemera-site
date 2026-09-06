@@ -245,3 +245,20 @@
     open();
   }
 })();
+
+/* --- видео вместо картинок: при системном «уменьшить движение» останавливаем
+   и оставляем постер. CSS так не умеет — паузу ставит только скрипт. --- */
+(function () {
+  var vids = document.querySelectorAll(".hero__bg-video, .media__video");
+  if (!vids.length) return;
+  var mq = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)");
+  if (!mq) return;
+  function apply() {
+    for (var i = 0; i < vids.length; i++) {
+      if (mq.matches) { vids[i].pause(); vids[i].removeAttribute("autoplay"); }
+      else { vids[i].play().catch(function () {}); }
+    }
+  }
+  apply();
+  if (mq.addEventListener) mq.addEventListener("change", apply);
+})();
