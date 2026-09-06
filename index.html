@@ -24,7 +24,7 @@
   <meta name="twitter:image" content="https://exemera.com/assets/img/og-image.jpg">
   <link rel="preload" href="assets/fonts/onest-var-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/onest-var-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="assets/img/hero.webp" as="image" type="image/webp">
+  <link rel="preload" href="assets/img/hero-poster.webp" as="image" type="image/webp">
   <link rel="stylesheet" href="assets/fonts/fonts.css">
   <link rel="stylesheet" href="css/style.css">
   <script type="application/ld+json">
@@ -98,7 +98,15 @@
 </header>
 
 <!-- ====================== HERO ====================== -->
-<section class="hero">
+<section class="hero hero--video">
+  <!-- беззвучный зацикленный фон первого экрана; при «уменьшить движение»
+       js/main.js останавливает его и оставляет постер -->
+  <video class="hero__bg-video" autoplay muted loop playsinline preload="auto"
+         poster="assets/img/hero-poster.webp" aria-hidden="true" tabindex="-1">
+    <source src="assets/video/hero-loop.webm" type="video/webm">
+    <source src="assets/video/hero-loop.mp4" type="video/mp4">
+  </video>
+  <div class="hero__veil"></div>
   <div class="wrap hero__in">
     <div>
       <span class="eyebrow">Эстетическая фармацевтика</span>
@@ -108,23 +116,16 @@
         <a class="btn btn--solid" href="contacts.html">Обсудить проект <span class="arr">→</span></a>
         <a class="btn" href="production.html">Смотреть производство</a>
       </div>
+      <!-- полоса доверия внутри первого экрана: лежит поверх кадра, как в утверждённом макете -->
+      <div class="hero__chips">
+        <div class="chip"><b>ISO 13485 / GMP</b><span>Сертификация</span></div>
+        <div class="chip"><b>Класс B (ISO 5/7)</b><span>Чистые помещения</span></div>
+        <div class="chip"><b>R&amp;D-лаборатория</b><span>Собственная, в Европе</span></div>
+      </div>
     </div>
-    <figure class="hero__img reveal">
-      <img src="assets/img/hero.webp" alt="Асептическая линия розлива Exemera" fetchpriority="high" width="1920" height="1072">
-    </figure>
   </div>
 </section>
 
-<!-- полоса доверия под hero (по taste-skill: траст-элементы не в hero) -->
-<section class="section--tight">
-  <div class="wrap">
-    <div class="hero__chips" style="margin-top: 0;">
-      <div class="chip"><b>ISO 13485 / GMP</b><span>Сертификация</span></div>
-      <div class="chip"><b>Класс B (ISO 5/7)</b><span>Чистые помещения</span></div>
-      <div class="chip"><b>R&amp;D-лаборатория</b><span>Собственная, в Европе</span></div>
-    </div>
-  </div>
-</section>
 
 <!-- ====================== ТРИ НАПРАВЛЕНИЯ ====================== -->
 <section class="section">
@@ -265,12 +266,16 @@
       <a class="card__link" href="mission.html" style="margin-top: 20px;">Миссия компании <span class="arr">→</span></a>
     </div>
     <figure class="media media--tall reveal" data-delay="1">
-      <img src="assets/img/about.webp" alt="Производственный комплекс Exemera" loading="lazy" width="1800" height="1344">
+      <video class="media__video" autoplay muted loop playsinline preload="metadata"
+             poster="assets/img/cleanroom-poster.webp" aria-label="Работа в чистом помещении: загрузка через изолятор">
+        <source src="assets/video/cleanroom.webm" type="video/webm">
+        <source src="assets/video/cleanroom.mp4" type="video/mp4">
+      </video>
       <div class="media__ph">
         <svg viewBox="0 0 24 24" fill="none" stroke-width="1.2"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="10" r="2"/><path d="m3 17 5-5 4 4 3-3 6 6"/></svg>
         <span>Фото производства</span>
       </div>
-      <figcaption>Производственный комплекс Exemera</figcaption>
+      <figcaption>Чистое помещение: загрузка через изолятор</figcaption>
     </figure>
   </div>
 </section>
