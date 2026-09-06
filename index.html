@@ -98,7 +98,15 @@
 </header>
 
 <!-- ====================== HERO ====================== -->
-<section class="hero">
+<section class="hero hero--video">
+  <!-- беззвучный зацикленный фон первого экрана; при «уменьшить движение»
+       js/main.js останавливает его и оставляет постер -->
+  <video class="hero__bg-video" autoplay muted loop playsinline preload="auto"
+         poster="assets/img/hero-poster.webp" aria-hidden="true" tabindex="-1">
+    <source src="assets/video/hero-loop.webm" type="video/webm">
+    <source src="assets/video/hero-loop.mp4" type="video/mp4">
+  </video>
+  <div class="hero__veil"></div>
   <div class="wrap hero__in">
     <div>
       <span class="eyebrow">Эстетическая фармацевтика</span>
@@ -109,9 +117,6 @@
         <a class="btn" href="production.html">Смотреть производство</a>
       </div>
     </div>
-    <figure class="hero__img reveal">
-      <img src="assets/img/hero.webp" alt="Асептическая линия розлива Exemera" fetchpriority="high" width="1920" height="1072">
-    </figure>
   </div>
 </section>
 
