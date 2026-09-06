@@ -289,45 +289,6 @@ body.menu-open .burger span:nth-child(3) { transform: translateY(-6px) rotate(-4
 }
 .hero__in { position: relative; z-index: 1; }
 
-/* --- видеофон первого экрана (вариант A, возврат приёма из июльской версии) --- */
-.hero__bg-video {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-/* Вуаль поверх видео: слева почти непрозрачная — под текст, справа открывает
-   кадр. Пересобрана под тёплую палитру Gilded Ivory; в июльской версии она была
-   холодная (247,250,253), сайт тогда был в другой гамме. */
-.hero__veil {
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(90deg,
-      rgba(250, 248, 244, 0.97) 0%,
-      rgba(250, 248, 244, 0.9) 36%,
-      rgba(250, 248, 244, 0.55) 62%,
-      rgba(250, 248, 244, 0.18) 100%),
-    linear-gradient(0deg, rgba(250, 248, 244, 0.92), transparent 26%);
-}
-/* Одна колонка вместо двух: правая картинка уступила место кадру.
-   Ширину ограничиваем у внутреннего блока, а не у .wrap — иначе текст
-   прилипает к краю окна и уезжает из общей сетки с шапкой и футером. */
-.hero--video .hero__in { display: block; }
-.hero--video .hero__in > div { max-width: 640px; }
-@media (max-width: 860px) {
-  /* на узком экране текст ложится поверх кадра сверху вниз, а не слева направо */
-  .hero--video .hero__veil {
-    background:
-      linear-gradient(180deg,
-        rgba(250, 248, 244, 0.96) 0%,
-        rgba(250, 248, 244, 0.88) 55%,
-        rgba(250, 248, 244, 0.5) 100%);
-  }
-  .hero--video .hero__in > div { max-width: none; }
-}
-
 .hero__in {
   display: grid;
   grid-template-columns: 1.05fr 0.95fr;
