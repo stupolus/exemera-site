@@ -245,18 +245,3 @@
     open();
   }
 })();
-
-/* --- видеофон первого экрана: при системном «уменьшить движение» останавливаем
-   и оставляем постер. CSS так не умеет — паузу можно поставить только скриптом. --- */
-(function () {
-  var v = document.querySelector(".hero__bg-video");
-  if (!v) return;
-  var mq = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)");
-  if (!mq) return;
-  function apply() {
-    if (mq.matches) { v.pause(); v.removeAttribute("autoplay"); }
-    else { v.play().catch(function () {}); }
-  }
-  apply();
-  if (mq.addEventListener) mq.addEventListener("change", apply);
-})();
