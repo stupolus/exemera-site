@@ -378,11 +378,11 @@
       "grainAnim": 0,
       "dither": 1.2,
       "vignette": 0.44,
-      "steer": 0.55,
-      "lift": 0.5,
-      "sweep": 0.75,
+      "steer": 1.05,
+      "lift": 0.9,
+      "sweep": 1.35,
       "cursor": 1,
-      "parallax": 0.006,
+      "parallax": 0.014,
       "maxDpr": 1
     }
 
@@ -672,7 +672,7 @@ void main() {
          Быстрый ведущий узел, тянущий за собой медленное тело, проносится через поворот
          и катится ещё мгновение после остановки руки — поле гонится за курсором, а не
          висит на нём. Обе скорости масштабируются `s`. */
-      var kLead = 0.20 * s, kBody = 0.09 * s
+      var kLead = 0.34 * s, kBody = 0.17 * s
       mouse.ax += (mouse.tx - mouse.ax) * kLead
       mouse.ay += (mouse.ty - mouse.ay) * kLead
       mouse.x += (mouse.ax - mouse.x) * kBody
