@@ -1029,6 +1029,8 @@ h1 em, h2 em {
   /* сильные кастомные кривые вместо встроенных CSS-изингов */
   --ease-out-strong: cubic-bezier(0.23, 1, 0.32, 1);
   --ease-in-out-strong: cubic-bezier(0.77, 0, 0.175, 1);
+  /* перелёт за цель и мягкий возврат — отскок кнопок */
+  --ease-back: cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 /* --- reveal: короткая дистанция, быстрый вход, без blur и scale --- */
@@ -1057,13 +1059,22 @@ h1 em, h2 em {
   to { opacity: 1; transform: none; filter: none; }
 }
 
-/* --- кнопки: мгновенный тактильный отклик --- */
+/* --- кнопки: подъём с доводом (вариант A)
+   При наведении кнопка поднимается на 2px и слегка перелетает цель на
+   --ease-back, прежде чем встать. Нажатие роняет её обратно за 90мс —
+   короче подъёма, поэтому палец получает отклик раньше, чем видит движение. */
 .btn {
   transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease,
-              transform 0.16s var(--ease-out-strong);
+              transform 0.26s var(--ease-back);
 }
-.btn:active { transform: scale(0.97); }
+.btn:hover { transform: translateY(-2px); }
+.btn:active { transform: translateY(0) scale(0.97); transition-duration: 0.09s; }
 .btn .arr { transition: transform 0.2s var(--ease-out-strong); }
+/* отмена отскока — обязательно ПОСЛЕ правил выше: блок reduced-motion в начале
+   файла имеет ту же специфичность и проиграл бы по порядку */
+@media (prefers-reduced-motion: reduce) {
+  .btn:hover, .btn:active { transform: none; }
+}
 
 /* --- шиммер в заголовках: вечный цикл, по Эмилю — убрать --- */
 h1 em, h2 em {
