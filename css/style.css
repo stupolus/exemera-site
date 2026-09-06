@@ -632,7 +632,9 @@ body.menu-open .burger span:nth-child(3) { transform: translateY(-6px) rotate(-4
 
 /* ---------- сертификаты ---------- */
 
-.cert-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+/* auto-fit вместо жёстких трёх колонок: карточек стало четыре, и на средних
+   экранах они должны складываться 2x2, а не сжиматься в нечитаемую полосу */
+.cert-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(215px, 1fr)); gap: 24px; }
 .cert {
   background: var(--white);
   border: 1px solid var(--line);
@@ -646,7 +648,18 @@ body.menu-open .burger span:nth-child(3) { transform: translateY(-6px) rotate(-4
   font-size: 1.1rem;
   font-weight: 600;
   margin-bottom: 8px;
+  text-wrap: balance; /* заголовок из нескольких слов не рвётся «Мы / готовы» */
 }
+/* карточка с ответом на возражение: вместо золотой черты — значок */
+.cert__icon {
+  display: block;
+  width: 34px; height: 34px;
+  margin: 0 auto 14px;
+  color: var(--accent);
+}
+.cert__icon svg { width: 100%; height: 100%; display: block; }
+.cert--rzn b::before { display: none; }
+
 .cert b::before {
   content: "";
   display: block;
@@ -992,7 +1005,9 @@ body.menu-open .burger span:nth-child(3) { transform: translateY(-6px) rotate(-4
   .fact:nth-child(n+3) { border-top: 1px solid var(--line); }
   .steps { grid-template-columns: repeat(2, 1fr); }
   .expo-grid { grid-template-columns: repeat(2, 1fr); }
-  .cert-grid { grid-template-columns: 1fr; }
+  /* карточек четыре: на планшете складываем 2x2, в одну колонку
+     они вытягиваются в неудобную ленту */
+  .cert-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 1200px) {
@@ -1034,6 +1049,8 @@ body.menu-open .burger span:nth-child(3) { transform: translateY(-6px) rotate(-4
 }
 
 @media (max-width: 560px) {
+  /* на телефоне четыре карточки в две колонки становятся слишком узкими */
+  .cert-grid { grid-template-columns: 1fr; }
   .steps { grid-template-columns: 1fr; }
   .facts { grid-template-columns: 1fr; }
   .fact + .fact { border-left: 0; border-top: 1px solid var(--line); }
