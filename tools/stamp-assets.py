@@ -20,7 +20,7 @@ import re
 import sys
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-ASSETS = ("css/style.css", "js/main.js", "assets/fonts/fonts.css")
+ASSETS = ("css/style.css", "js/main.js", "js/metrika.js", "assets/fonts/fonts.css")
 
 
 def digest(path: pathlib.Path) -> str:
@@ -32,8 +32,9 @@ def main() -> int:
     for rel in ASSETS:
         f = ROOT / rel
         if not f.exists():
-            print(f"нет файла: {rel}", file=sys.stderr)
-            return 1
+            # файла может не быть в конкретной ветке — это не ошибка
+            print(f"пропуск, нет файла: {rel}", file=sys.stderr)
+            continue
         versions[rel] = digest(f)
 
     changed = 0
