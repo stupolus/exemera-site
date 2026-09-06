@@ -1301,6 +1301,11 @@ body.splash-open .hero .hero__img { animation-play-state: paused; }
   height: 100%;
   color: var(--accent);
   opacity: 0.16;
+  /* Кольца гаснут к низу экрана: иначе дуги проходят прямо по логотипу и
+     подписи под схемой, и знак читается перечёркнутым. Круги самой схемы
+     логотип не задевают — они заканчиваются выше него. */
+  -webkit-mask-image: linear-gradient(to bottom, #000 58%, rgba(0, 0, 0, 0.3) 72%, transparent 80%);
+  mask-image: linear-gradient(to bottom, #000 58%, rgba(0, 0, 0, 0.3) 72%, transparent 80%);
 }
 .splash__rings-a { animation: splash-drift 26s ease-in-out infinite alternate; transform-origin: 50% 40%; }
 .splash__rings-b { animation: splash-drift 26s ease-in-out infinite alternate-reverse; transform-origin: 50% 90%; }
