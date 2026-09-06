@@ -308,7 +308,12 @@ body.menu-open .burger span:nth-child(3) { transform: translateY(-6px) rotate(-4
 /* Одна колонка вместо двух. Ширину ограничиваем у внутреннего блока, а не
    у .wrap — иначе текст прилипает к краю окна и уезжает из сетки с шапкой. */
 .hero--video .hero__in { display: block; }
-.hero--video .hero__in > div { max-width: 660px; }
+/* Ограничиваем ширину у самого текста, а не у блока целиком: строка заголовка
+   и лида остаётся комфортной, а полоса доверия получает всю ширину сетки —
+   иначе четвёртый чип срывается на вторую строку и висит там один. */
+.hero--video .hero__in > div { max-width: none; }
+.hero--video .hero__in h1,
+.hero--video .hero__in .lead { max-width: 660px; }
 /* полоса доверия лежит поверх кадра — стекло, чтобы читалась на любом кадре */
 .hero--video .hero__chips .chip {
   background: rgba(255, 255, 255, 0.72);
@@ -327,7 +332,8 @@ body.menu-open .burger span:nth-child(3) { transform: translateY(-6px) rotate(-4
         rgba(250, 248, 244, 0.88) 55%,
         rgba(250, 248, 244, 0.5) 100%);
   }
-  .hero--video .hero__in > div { max-width: none; }
+  .hero--video .hero__in h1,
+  .hero--video .hero__in .lead { max-width: none; }
 }
 
 .hero__in {
