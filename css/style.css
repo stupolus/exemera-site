@@ -829,6 +829,37 @@ body.menu-open .burger span:nth-child(3) { transform: translateY(-6px) rotate(-4
   border-radius: 50%;
   background: var(--accent-faint);
 }
+
+/* --- гипотеза: карточка линейки с фотографией на фоне ---
+   Снимок бледный и холодный, текст на нём тонет, поэтому поверх лежит
+   вуаль из бумаги: слева почти плотная под текст, справа открывает шприц.
+   Золотой кружок ::after на фотографии не нужен — он спорит с кадром. */
+.soon-card--photo {
+  background: url("../assets/img/filler-syringe.webp") right center / cover no-repeat, var(--white);
+  border-color: rgba(43, 36, 27, 0.18);
+}
+.soon-card--photo::after { display: none; }
+.soon-card--photo::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(100deg,
+    rgba(250, 248, 244, 0.97) 0%,
+    rgba(250, 248, 244, 0.92) 42%,
+    rgba(250, 248, 244, 0.62) 70%,
+    rgba(250, 248, 244, 0.28) 100%);
+}
+.soon-card--photo > * { position: relative; z-index: 1; }
+@media (max-width: 760px) {
+  /* на узкой карточке кадр уходит в фон целиком, читаемость важнее картинки */
+  .soon-card--photo::before {
+    background: linear-gradient(180deg,
+      rgba(250, 248, 244, 0.96) 0%,
+      rgba(250, 248, 244, 0.9) 60%,
+      rgba(250, 248, 244, 0.62) 100%);
+  }
+}
 .soon-card .badge {
   display: inline-block;
   font-size: 0.68rem;
