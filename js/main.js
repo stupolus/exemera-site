@@ -85,6 +85,27 @@
     setTimeout(check, 2500);
   });
 
+  /* --- цели Яндекс Метрики ---
+     Счётчик сам считает только просмотры страниц. Обращения — это события,
+     их надо отправлять руками. Идентификаторы целей должны совпадать с теми,
+     что заведены в интерфейсе Метрики (тип «JavaScript-событие»).
+     Номер счётчика продублирован из js/metrika.js: там он в аргументе ym(). */
+  var YM_ID = 112327224;
+  function goal(name, params) {
+    /* метрика может не загрузиться (блокировщик, нет сети) — сайт от этого не ломается */
+    if (typeof window.ym !== "function") return;
+    try {
+      if (params) window.ym(YM_ID, "reachGoal", name, params);
+      else window.ym(YM_ID, "reachGoal", name);
+    } catch (e) {}
+  }
+
+  /* клик по любому адресу почты — на всех страницах, включая подвал */
+  document.addEventListener("click", function (e) {
+    var a = e.target.closest ? e.target.closest('a[href^="mailto:"]') : null;
+    if (a) goal("email_click");
+  });
+
   /* --- форма контактов: собираем письмо через mailto ---
      Бэкенда у статического сайта нет; при подключении хостинга с формами
      (Formspree, Tilda-форма, свой endpoint) замените обработчик. */
@@ -98,6 +119,9 @@
       var msg = form.querySelector("[name=message]").value.trim();
       var subject = "Запрос с сайта Exemera — " + topic;
       var body = "Имя: " + name + "\nКомпания: " + company + "\nНаправление: " + topic + "\n\n" + msg;
+      /* цель отправляется до открытия почтового клиента: направление кладём
+         параметром, чтобы в Метрике было видно, по какому вопросу пишут */
+      goal("form_submit", { направление: topic });
       /* ЗАМЕНИТЬ: рабочий email компании */
       location.href = "mailto:hello@exemera.com?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
     });

@@ -320,6 +320,11 @@
       document.getElementById("tdGateYes").addEventListener("click", function () {
         try { sessionStorage.setItem("td-hcp", "1"); } catch (e) {}
         gate.hidden = true; no.hidden = true; body.hidden = false;
+        /* цель Метрики: сколько посетителей подтверждают статус медработника.
+           Эта страница не подключает js/main.js, поэтому вызов здесь, а не там. */
+        if (typeof window.ym === "function") {
+          try { window.ym(112327224, "reachGoal", "hcp_confirm"); } catch (e) {}
+        }
       });
       document.getElementById("tdGateNo").addEventListener("click", function () {
         gate.hidden = true; body.hidden = true; no.hidden = false;
